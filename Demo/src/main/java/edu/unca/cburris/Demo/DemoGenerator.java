@@ -44,13 +44,13 @@ public class DemoGenerator extends ChunkGenerator {
 		SimplexOctaveGenerator octave = new SimplexOctaveGenerator(rand, 8);
 		
 		octave.setScale(1/64.0);
-		for (x = 0; x < 18; x++){
-			for(z = 0; z < 18; z++){
+		for (x = 0; x < 15; x++){
+			for(z = 0; z < 15; z++){
 				blocks[this.coordsToBytes(x, 0, z)] = (byte) Material.GRASS.getId();
 				
-				double noise = octave.noise(x + chunkX * 17, z + chunkZ * 17, 0.7, 0.7) * 13;
+				double noise = octave.noise(x + chunkX * 14, z + chunkZ * 14, 0.7, 0.7) * 11;
 				
-				for(y = 1; y < 45 + noise; y++){
+				for(y = 1; y < 28 + noise; y++){
 					blocks[this.coordsToBytes(x, y, z)] = (byte) Material.SNOW.getId();
 				}
 				blocks[this.coordsToBytes(x, y, z)] = (byte) Material.SNOW.getId();
