@@ -35,16 +35,19 @@ public class DemoCommandExecutor implements CommandExecutor {
 	 * On command set the sample message
 	 */
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		
+		
 		if (args.length == 0) {
 			return false;
 		} else if (!(sender instanceof Player)) {
+			 sender.sendMessage(ChatColor.DARK_RED + "you do not currently have permissions to use these commands");
 			return false;
-			// the cake will appear on the ground but not
-			// necessarily where the player is looking
+			
 		} else if (args[0].equalsIgnoreCase("spider")) {
 			Player p = (Player) sender;
 			 // player gets a spider's eye
-			p.getInventory().addItem(new ItemStack(Material.SPIDER_EYE, 1));
+			p.getInventory().addItem(new ItemStack(Material.SPIDER_EYE, 4));
+			plugin.setMetaData(p, "spider_eye", true, plugin);
 			return true;
 			// the stored message now always begins with
 			// the word "message"--do you know how to easily
@@ -54,7 +57,7 @@ public class DemoCommandExecutor implements CommandExecutor {
 			Player p = (Player)sender;
 			//send a message to the player about how much experience is needed to level up 
 			p.sendMessage("Experience total is " + p.getTotalExperience());
-			
+			plugin.setMetaData(p, "xp", true, plugin);
 			p.getExpToLevel();
 			return true;
 		} else if (args[0].equalsIgnoreCase("sword")
@@ -65,6 +68,7 @@ public class DemoCommandExecutor implements CommandExecutor {
 			p.setItemInHand(new ItemStack(Material.IRON_SWORD, 1));
 	        // send a message to inform player they received a sword
 			p.sendMessage(ChatColor.RED + "A sword for battle... "); 
+			plugin.setMetaData(p, "iron_sword", true, plugin);
 			return true;
 		
 		//playNote(Location loc, byte instrument, byte note); play sound method
@@ -86,7 +90,8 @@ public class DemoCommandExecutor implements CommandExecutor {
 		InventoryView ce = p.openInventory(inventory);
 		ce.getCursor();
 		//send a message to inform player they received a set of armor
-		p.sendMessage(ChatColor.RED + "Armor is in Inventory... ");
+		p.sendMessage(ChatColor.RED + "Armorset is in Inventory... ");
+		plugin.setMetaData(p, "iron_armorset", true, plugin);
 		return true;
 	
 	
@@ -101,6 +106,7 @@ public class DemoCommandExecutor implements CommandExecutor {
 			Location l = p.getBedSpawnLocation();
 			p.teleport(l);
 			p.sendMessage("It's Bedtime");
+			plugin.setMetaData(p, "bed", true, plugin);
 			return true;
 		}
 	
