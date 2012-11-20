@@ -75,7 +75,7 @@ public class DemoCommandExecutor implements CommandExecutor {
 		
 		
 	}else if (args[0].equalsIgnoreCase("armor")
-			&& sender.hasPermission("demo.sword")) {
+			&& sender.hasPermission("demo.armor")) {
 		Item.class.getMethods();
 		
 		Player p = (Player)sender;
@@ -91,7 +91,8 @@ public class DemoCommandExecutor implements CommandExecutor {
 		ce.getCursor();
 		//send a message to inform player they received a set of armor
 		p.sendMessage(ChatColor.RED + "Armorset is in Inventory... ");
-		plugin.setMetaData(p, "iron_armorset", true, plugin);
+		plugin.setMetaData(p, "iron_sword", false, plugin);
+		
 		return true;
 	
 	

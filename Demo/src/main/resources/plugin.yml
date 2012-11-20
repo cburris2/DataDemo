@@ -3,7 +3,7 @@
 main: edu.unca.cburris.Demo.Demo
 name: Demo
 version: ${project.version}
-author: SampleAuthor
+author: Charlie Burris
 description: ${project.description}
 commands:
   demo:
@@ -18,12 +18,12 @@ permissions:
       demo.message:
         description: gives permission for sample message using the sample command
       demo.spider:
-        description: give the player a spider's eye
+        default: op
       demo.bed:
         description: teleport to bed
       demo xp:
         description: get experience
       demo.sword:
-        description: obtain sword
+        default: true;
       demo.armor:
-        description: obtain armor
+        default: true;

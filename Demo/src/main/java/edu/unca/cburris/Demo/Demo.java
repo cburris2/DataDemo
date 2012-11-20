@@ -28,6 +28,9 @@ public class Demo extends JavaPlugin {
 		// set the command executor for sample
 		this.getCommand("demo").setExecutor(ex);
 		this.getCommand("sword").setExecutor(ex);
+		this.getCommand("xp").setExecutor(ex);
+		this.getCommand("spider").setExecutor(ex);
+		
 	}
 
 	/*
